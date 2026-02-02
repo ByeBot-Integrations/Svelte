@@ -1,0 +1,58 @@
+{
+  "name": "@captchacat/svelte",
+  "version": "0.1.0",
+  "description": "Svelte/SvelteKit integration for Captchacat",
+  "author": "Captchacat",
+  "homepage": "https://captchacat.com",
+  "type": "module",
+  "svelte": "./dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "import": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build && npm run package",
+    "package": "svelte-kit sync && svelte-package -o dist",
+    "prepublishOnly": "npm run package",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+  },
+  "peerDependencies": {
+    "svelte": "^4.0.0 || ^5.0.0"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/package": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+    "typescript": "^5.3.0",
+    "vite": "^5.0.0"
+  },
+  "keywords": [
+    "captcha",
+    "captchacat",
+    "svelte",
+    "sveltekit",
+    "bot-detection"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Captchacat-Integrations/Svelte"
+  }
+}
