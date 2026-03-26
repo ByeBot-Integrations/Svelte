@@ -1,30 +1,30 @@
-# @captchacat/svelte
+# @byebot/svelte
 
-Svelte/SvelteKit integration for Captchacat.
+Svelte/SvelteKit integration for Byebot.
 
-GitHub: https://github.com/Captchacat-Integrations/Svelte
+GitHub: https://github.com/ByeBot-Integrations/Svelte
 
 ## Installation
 
 ```bash
-npm install @captchacat/svelte
+npm install @byebot/svelte
 ```
 
 ## Usage
 
 ### Basic Form (Recommended)
 
-The captcha token is automatically added as a hidden `captchacat-token` field when the user completes verification.
+The captcha token is automatically added as a hidden `byebot-token` field when the user completes verification.
 
 ```svelte
 <script>
-  import { Captchacat } from '@captchacat/svelte';
+  import { Byebot } from '@byebot/svelte';
 </script>
 
 <form action="/api/login" method="POST">
   <input name="email" type="email" />
   <input name="password" type="password" />
-  <Captchacat siteKey="your-site-key" />
+  <Byebot siteKey="your-site-key" />
   <button type="submit">Login</button>
 </form>
 ```
@@ -35,7 +35,7 @@ Use `on:verify` if you need to know when verification completes (e.g., enable su
 
 ```svelte
 <script lang="ts">
-  import { Captchacat } from '@captchacat/svelte';
+  import { Byebot } from '@byebot/svelte';
 
   let isVerified = false;
 
@@ -45,25 +45,25 @@ Use `on:verify` if you need to know when verification completes (e.g., enable su
   }
 </script>
 
-<Captchacat siteKey="your-site-key" on:verify={handleVerify} />
+<Byebot siteKey="your-site-key" on:verify={handleVerify} />
 <button disabled={!isVerified}>Submit</button>
 ```
 
 ## Server-Side Validation
 
-Validate the `captchacat-token` from the form submission:
+Validate the `byebot-token` from the form submission:
 
 ```typescript
 // src/routes/api/login/+server.ts
-import { validateCaptchacatToken } from "@captchacat/svelte/server";
+import { validateByebotToken } from "@byebot/svelte/server";
 import { json, error } from "@sveltejs/kit";
 
 export const POST = async ({ request }) => {
   const formData = await request.formData();
-  const token = formData.get("captchacat-token") as string;
+  const token = formData.get("byebot-token") as string;
 
-  const result = await validateCaptchacatToken({
-    apiKey: process.env.CAPTCHACAT_API_KEY!,
+  const result = await validateByebotToken({
+    apiKey: process.env.BYEBOT_API_KEY!,
     token,
   });
 
@@ -82,7 +82,7 @@ export const POST = async ({ request }) => {
 
 ## API
 
-### `<Captchacat />`
+### `<Byebot />`
 
 | Prop      | Type     | Required | Description                      |
 | --------- | -------- | -------- | -------------------------------- |
@@ -92,7 +92,7 @@ export const POST = async ({ request }) => {
 | -------- | -------- | ------------------------------- |
 | `verify` | `string` | Emitted on verification success |
 
-### `validateCaptchacatToken(options)`
+### `validateByebotToken(options)`
 
 | Option   | Type     | Required |
 | -------- | -------- | -------- |

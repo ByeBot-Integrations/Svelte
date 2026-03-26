@@ -1,9 +1,9 @@
 {
-  "name": "@captchacat/svelte",
-  "version": "0.1.0",
-  "description": "Svelte/SvelteKit integration for Captchacat",
-  "author": "Captchacat",
-  "homepage": "https://captchacat.com",
+  "name": "@byebot/svelte",
+  "version": "1.0.0",
+  "description": "Svelte/SvelteKit integration for Byebot",
+  "author": "Byebot",
+  "homepage": "https://byebot.de",
   "type": "module",
   "svelte": "./dist/index.js",
   "main": "./dist/index.js",
@@ -45,7 +45,7 @@
   },
   "keywords": [
     "captcha",
-    "captchacat",
+    "byebot",
     "svelte",
     "sveltekit",
     "bot-detection"
@@ -53,6 +53,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Captchacat-Integrations/Svelte"
+    "url": "https://github.com/ByeBot-Integrations/Svelte"
   }
 }

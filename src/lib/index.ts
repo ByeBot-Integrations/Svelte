@@ -1,1 +1,1 @@
-export { default as Captchacat } from './Captchacat.svelte';
+export { default as Byebot } from './Byebot.svelte';

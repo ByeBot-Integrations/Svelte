@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    Captchacat?: {
+    Byebot?: {
       render: (container?: HTMLElement) => void;
     };
     [key: string]: unknown;

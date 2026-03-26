@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Captchacat } from '@captchacat/svelte';
+  import { Byebot } from '@byebot/svelte';
 
   let username = '';
   let password = '';
@@ -19,7 +19,7 @@
     formData.append('username', username);
     formData.append('password', password);
     if (captchaToken) {
-      formData.append('captchacat-token', captchaToken);
+      formData.append('byebot-token', captchaToken);
     }
 
     const res = await fetch('/api/login', {
@@ -37,7 +37,7 @@
 </script>
 
 <main class="main">
-  <h1 class="page-title">Captchacat - SvelteKit Demo</h1>
+  <h1 class="page-title">Byebot - SvelteKit Demo</h1>
 
   <div class="container">
     <form on:submit={handleSubmit} class="form">
@@ -58,7 +58,7 @@
         class="input"
       />
 
-      <Captchacat siteKey="bd1cc81b04564d3f899e" on:verify={handleVerify} />
+      <Byebot siteKey="bd1cc81b04564d3f899e" on:verify={handleVerify} />
 
       <div class="status-row">
         <span class="status-dot" class:verified={isVerified}></span>

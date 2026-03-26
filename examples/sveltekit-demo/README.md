@@ -1,6 +1,6 @@
 # SvelteKit Demo
 
-Example SvelteKit app using `@captchacat/svelte`.
+Example SvelteKit app using `@byebot/svelte`.
 
 ## Run
 
@@ -16,7 +16,7 @@ Open [http://localhost:5173](http://localhost:5173)
 
 ```
 src/routes/
-├── +page.svelte      # Form with Captchacat component
+├── +page.svelte      # Form with Byebot component
 └── api/login/
     └── +server.ts    # Server-side token validation
 ```

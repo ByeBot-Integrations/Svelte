@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@captchacat/svelte": "^0.1.0"
+    "@byebot/svelte": "^0.1.0"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.0.0",

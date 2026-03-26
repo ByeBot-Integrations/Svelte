@@ -3,7 +3,7 @@
   import { createEventDispatcher } from 'svelte';
   import './global.d.ts';
 
-  const BASE_URL = 'https://challenge.captchacat.com';
+  const BASE_URL = 'https://challenge.byebot.de';
 
   export let siteKey: string;
 
@@ -14,7 +14,7 @@
 
   onMount(() => {
     // Generate unique callback name
-    callbackName = `captchacat_cb_${Math.random().toString(36).substring(7)}`;
+    callbackName = `byebot_cb_${Math.random().toString(36).substring(7)}`;
 
     // Set up global callback bridge
     window[callbackName] = (token: string) => {
@@ -25,8 +25,8 @@
     const scriptUrl = `${BASE_URL}/ray/widget.js`;
 
     const handleInit = () => {
-      if (window.Captchacat?.render && containerRef) {
-        window.Captchacat.render(containerRef);
+      if (window.Byebot?.render && containerRef) {
+        window.Byebot.render(containerRef);
       }
     };
 
@@ -42,7 +42,7 @@
       document.body.appendChild(script);
     } else {
       // Script exists - check if already loaded
-      if (window.Captchacat) {
+      if (window.Byebot) {
         handleInit();
       } else {
         script.addEventListener('load', handleInit);
@@ -63,9 +63,9 @@
   });
 
   // Reactive statement to handle siteKey changes
-  $: if (siteKey && typeof window !== 'undefined' && window.Captchacat?.render && containerRef) {
+  $: if (siteKey && typeof window !== 'undefined' && window.Byebot?.render && containerRef) {
     containerRef.innerHTML = '';
-    window.Captchacat.render(containerRef);
+    window.Byebot.render(containerRef);
   }
 </script>
 
